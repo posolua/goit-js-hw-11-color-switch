@@ -17,12 +17,12 @@ const colorSwitch = {
   intervalId: null,
   onStart() {
     if (this.intervalId) return;
-    refs.start.classList.add('active');
+    refs.start.setAttribute('disabled', 'disabled');
     refs.stop.removeAttribute('disabled');
     this.intervalId = setInterval(this.change, 1000);
   },
   onStop() {
-    refs.start.classList.remove('active');
+    refs.start.removeAttribute('disabled');
     refs.stop.setAttribute('disabled', 'disabled');
     clearInterval(this.intervalId);
     this.intervalId = null;
